@@ -8,6 +8,7 @@ public class ThreesTwoGame {
 	public ThreesTwoGame() {
 		board = new Cell[boardSize][boardSize];
 		// TODO some code to retrieve the high score from a text file.
+		// change
 		status = GameStatus.IN_PROGRESS;
 	}
 
