@@ -8,8 +8,7 @@ public class ThreesTwoGame {
 	public ThreesTwoGame() {
 		board = new Cell[boardSize][boardSize];
 		// TODO some code to retrieve the high score from a text file.
-		// change some code. This is a change. 
-		// This is me, hoping that Eclipse finds this change. 
+		// change some code. This is a change.
 		status = GameStatus.IN_PROGRESS;
 	}
 
