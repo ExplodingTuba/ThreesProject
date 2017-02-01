@@ -19,17 +19,31 @@ public class ThreesTwoGame {
 						if (board[row - 1][col].isEmpty()) {
 							board[row - 1][col].setValue(
 									board[row][col].getValue());
+							board[row - 1][col].setEmpty(false);
 							board[row][col].setValue(0);
 							board[row][col].setEmpty(true);
 						}
 
-						if (board[row - 1][col]
+						else if (board[row - 1][col]
 								.getValue() == board[row][col]
 										.getValue()
 								&& board[row][col].getValue() != 1
 								|| board[row][col].getValue() != 2) {
 							board[row - 1][col].setValue(
 									board[row - 1][col].getValue() * 2);
+							board[row - 1][col].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+
+						else if (board[row - 1][col].getValue() == 1
+								&& board[row][col].getValue() == 2
+								|| board[row - 1][col].getValue() == 2
+										&& board[row][col]
+												.getValue() == 1) {
+							board[row - 1][col].setValue(3);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
 						}
 
 					}
@@ -38,14 +52,116 @@ public class ThreesTwoGame {
 			}
 
 			if (direction == Direction.DOWN) {
+				for (int row = 2; row > -1; row--) {
+					for (int col = 0; col < boardSize; col++) {
+						if (board[row + 1][col].isEmpty()) {
+							board[row + 1][col].setValue(
+									board[row][col].getValue());
+							board[row + 1][col].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+
+						else if (board[row + 1][col]
+								.getValue() == board[row][col]
+										.getValue()
+								&& board[row][col].getValue() != 1
+								|| board[row][col].getValue() != 2) {
+							board[row + 1][col].setValue(
+									board[row + 1][col].getValue() * 2);
+							board[row + 1][col].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+
+						else if (board[row + 1][col].getValue() == 1
+								&& board[row][col].getValue() == 2
+								|| board[row + 1][col].getValue() == 2
+										&& board[row][col]
+												.getValue() == 1) {
+							board[row + 1][col].setValue(3);
+							board[row + 1][col].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+					}
+				}
 
 			}
 
 			if (direction == Direction.RIGHT) {
+				for (int row = 0; row < boardSize; row++) {
+					for (int col = 2; col > -1; col--) {
+						if (board[row][col + 1].isEmpty()) {
+							board[row][col + 1].setValue(
+									board[row][col].getValue());
+							board[row][col + 1].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+
+						else if (board[row][col + 1]
+								.getValue() == board[row][col]
+										.getValue()
+								&& board[row][col].getValue() != 1
+								|| board[row][col].getValue() != 2) {
+							board[row][col + 1].setValue(
+									board[row][col + 1].getValue() * 2);
+							board[row][col + 1].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+
+						else if (board[row][col + 1].getValue() == 1
+								&& board[row][col].getValue() == 2
+								|| board[row][col + 1].getValue() == 2
+										&& board[row][col]
+												.getValue() == 1) {
+							board[row][col + 1].setValue(3);
+							board[row][col + 1].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+					}
+				}
 
 			}
 
 			if (direction == Direction.LEFT) {
+				for (int row = 0; row < boardSize; row++) {
+					for (int col = 1; col < boardSize; col++) {
+						if (board[row][col - 1].isEmpty()) {
+							board[row][col - 1].setValue(
+									board[row][col].getValue());
+							board[row][col - 1].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+
+						else if (board[row][col - 1]
+								.getValue() == board[row][col]
+										.getValue()
+								&& board[row][col].getValue() != 1
+								|| board[row][col].getValue() != 2) {
+							board[row][col - 1].setValue(
+									board[row][col].getValue() * 2);
+							board[row][col - 1].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+
+						else if (board[row][col - 1].getValue() == 1
+								&& board[row][col].getValue() == 2
+								|| board[row][col - 1].getValue() == 2
+										&& board[row][col]
+												.getValue() == 1) {
+							board[row][col - 1].setValue(3);
+							board[row][col - 1].setEmpty(false);
+							board[row][col].setValue(0);
+							board[row][col].setEmpty(true);
+						}
+					}
+				}
 
 			}
 		} else {
