@@ -4,6 +4,8 @@ public class ThreesTwoGame {
 	private Cell[][] board;
 	private GameStatus status;
 	private int highScore;
+	private int score;
+	private final String FILENAME = "high_score.txt";
 	private final static int boardSize = 4;
 
 	public ThreesTwoGame() {
@@ -339,5 +341,42 @@ public class ThreesTwoGame {
 		}
 		return false;
 	}
+	
+	private void setHighScore() {
+		
+		Path file = FileSystems.getDefault().getPath(FILENAME);
+		
+        
+        try (BufferedReader reader = Files.newBufferedReader(file)) {
+        	
+            highScore = Integer.parseInt(reader.readLine());
+
+        } catch (IOException e) {
+            // File does not exist, so high score is zero
+        	highScore = 0;
+        }
+
+    }
+	
+	private void saveHighScore() {
+		
+		if (score > highScore) {
+		
+			Path file = FileSystems.getDefault().getPath(FILENAME);
+		
+			String str = Integer.toString(score);
+
+			try (BufferedWriter write = Files.newBufferedWriter(file)) {
+				
+				write.write(str);
+				
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+				
+			}
+		}
+	}
+	
 
 }
