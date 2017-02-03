@@ -10,7 +10,7 @@ public class ThreesTwoGame {
 		board = new Cell[boardSize][boardSize];
 		// TODO some code to retrieve the high score from a text file.
 		// change some code. This is a change.
-		// test for uploading changing in Github. 
+		// This would be me deleting the comment in Github. 
 		status = GameStatus.IN_PROGRESS;
 	}
 
