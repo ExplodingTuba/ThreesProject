@@ -8,7 +8,7 @@ public class ThreesTwoGame {
 	public ThreesTwoGame() {
 		board = new Cell[boardSize][boardSize];
 		// TODO some code to retrieve the high score from a text file.
-		// change some code. This is a change.
+		// change some code. This is a change. 
 		status = GameStatus.IN_PROGRESS;
 	}
 
@@ -48,6 +48,15 @@ public class ThreesTwoGame {
 						}
 
 					}
+				}
+				
+				Random rand = new Random();
+				Boolean newCell = false;
+				int number = rand.
+				while (!newCell)
+				int r = rand.nextInt(3)
+				if (board[3][r].isEmpty()){
+					
 				}
 
 			}
