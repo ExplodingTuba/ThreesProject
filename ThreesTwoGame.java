@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class ThreesTwoGame {
 	private Cell[][] board;
@@ -8,7 +9,7 @@ public class ThreesTwoGame {
 	public ThreesTwoGame() {
 		board = new Cell[boardSize][boardSize];
 		// TODO some code to retrieve the high score from a text file.
-		// change some code. This is a change. 
+		// change some code. This is a change.
 		status = GameStatus.IN_PROGRESS;
 	}
 
@@ -46,19 +47,19 @@ public class ThreesTwoGame {
 							board[row][col].setValue(0);
 							board[row][col].setEmpty(true);
 						}
-
 					}
 				}
 				
 				Random rand = new Random();
 				Boolean newCell = false;
-				int number = rand.
-				while (!newCell)
-				int r = rand.nextInt(3)
-				if (board[3][r].isEmpty()){
-					
+				int number = rand.nextInt(1) + 1;
+				while (!newCell){
+					int up = rand.nextInt(3);
+					if (board[3][up].isEmpty()){
+						board[3][up].setValue(number);
+						newCell = true;
+					}
 				}
-
 			}
 
 			if (direction == Direction.DOWN) {
@@ -96,8 +97,19 @@ public class ThreesTwoGame {
 						}
 					}
 				}
+				
+				Random rand = new Random();
+				int number = rand.nextInt(1) + 1;
+				Boolean newCell = false;
+				while (!newCell){
+					int down = rand.nextInt(3);
+					if (board[0][down].isEmpty()){
+						board[0][down].setValue(number);
+						newCell = true;
 
+				}
 			}
+		}
 
 			if (direction == Direction.RIGHT) {
 				for (int row = 0; row < boardSize; row++) {
@@ -134,8 +146,19 @@ public class ThreesTwoGame {
 						}
 					}
 				}
+				
+				Random rand = new Random();
+				int number = rand.nextInt(1) + 1;
+				Boolean newCell = false;
+				while (!newCell){
+					int right = rand.nextInt(3);
+					if (board[right][0].isEmpty()){
+						board[right][0].setValue(number);
+						newCell = true;
 
+				}
 			}
+		}
 
 			if (direction == Direction.LEFT) {
 				for (int row = 0; row < boardSize; row++) {
@@ -172,10 +195,19 @@ public class ThreesTwoGame {
 						}
 					}
 				}
+				
+				Random rand = new Random();
+				int number = rand.nextInt(1) + 1;
+				Boolean newCell = false;
+				while (!newCell){
+					int left = rand.nextInt(3);
+					if (board[left][0].isEmpty()){
+						board[left][0].setValue(number);
+						newCell = true;
 
+					}
+				}
 			}
-		} else {
-			// error, move not allowed
 		}
 	}
 
